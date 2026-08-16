@@ -1,32 +1,32 @@
 # ============================================================
 # STEP 1: Your Identity (required)
 # ============================================================
-name: "Richard Feynman"
-title: "Professor of Physics"
-institution: "California Institute of Technology"
-email: richard@university.edu
-photo: headshot.jpg  # place your photo in images/
+name: "Daniel J. Vickers"
+title: "PhD Student"
+institution: "Georgia Institute of Technology"
+email: dvickers6@gatech.edu
+photo: face.png  # place your photo in images/
 
 # ============================================================
 # STEP 2: Your Links (optional -- delete any you don't use)
 # ============================================================
 links:
-  google_scholar: "https://scholar.google.com/citations?user=B7vSqZsAAAAJ"
-  github: "https://github.com/"
-  researchgate: "https://www.researchgate.net/"
-  orcid: ""
+  google_scholar: "https://scholar.google.com/citations?user=EJ5k-8cAAAAJ&hl"
+  github: "https://github.com/danieljvickers"
+  researchgate: "https://www.researchgate.net/profile/Daniel-Vickers-4"
+  orcid: "https://orcid.org/0000-0002-5231-5528"
   twitter: ""
-  linkedin: ""
+  linkedin: "https://www.linkedin.com/in/daniel-vickers-857821126/"
   cv: ""  # e.g., "papers/cv.pdf" — leave blank to hide the CV icon
 
 # ============================================================
 # STEP 3: Site Settings
 # ============================================================
-accent_color: "#1a7a6d"      # theme color for links and buttons
+accent_color: "#60A5FA"      # theme color for links and buttons
 dark_mode: true              # show dark mode toggle in navbar
-description: "Academic webpage of Dr. Richard Feynman"
-baseurl: ""
-url: ""
+description: "Academic webpage of Daniel J. VIckers"
+baseurl: "www.danieljvickers.com"
+url: "www.danieljvickers.com"
 
 # Google Analytics — paste your GA4 measurement ID, or leave blank
 analytics:
@@ -40,10 +40,7 @@ nav_pages:
   - name: publications
   - name: talks
   - name: research
-  - name: software
-  - name: team
-  - name: teaching
-  - name: blogs
+  - name: Climbing
 
 # ============================================================
 # Advanced Settings (you probably don't need to change these)
@@ -76,8 +73,8 @@ kramdown:
 plugins: ["jekyll/scholar", "jekyll-sitemap"]
 
 scholar:
-  last_name: Doe
-  first_name: [John]
+  last_name: Vickers
+  first_name: [Daniel J.]
   style: citesty
   locale: en
   source: /assets/

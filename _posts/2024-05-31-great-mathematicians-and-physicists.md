@@ -1,10 +1,8 @@
 ---
 layout: post
-title: "Great Mathematicians and Physicists"
+title: "Starting My PhD"
 date: 2024-05-31
-categories: "Fun"
+categories: "Updates"
 ---
 
-A list of 50 brilliant minds who have significantly advanced our understanding of the world and contributed to making it a better place!
-
-{% include csv_to_table.html dataset=site.data.great_mathematicians_and_physicists %}
+I am starting my PhD at the Georgia Institute of Tehcnology. I will be researching CFD optimization for particle-laden flows. I will be funded by the PSAAP IV center, and I will be collaborating with groups of University of Florida, Perdue, and University of Texas at Austin.
