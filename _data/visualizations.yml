@@ -1,7 +1,11 @@
 # ============================================================
 # Visualizations
 # ------------------------------------------------------------
-# One entry per video / animation. Paste the ordinary share link
+# One entry per video / animation. The list is shown in reverse:
+# the LAST entry in this file appears first on the page, so add
+# new visualizations to the bottom.
+#
+# Paste the ordinary share link
 # and the preview image is pulled from the host automatically --
 # you do not need to save a thumbnail anywhere.
 #
@@ -22,14 +26,18 @@
 # ============================================================
 
 # Uncomment and edit -- the page shows "No visualizations yet."
-# until at least one entry is live.
+# until at least one entry is live. https://www.youtube.com/watch?v=siUf2kdybC4
+
+- title: "EEG Spectrogram of a Partient Given Nitrous Oxide"
+  url: "https://drive.google.com/file/d/1uPufGvnGhdPrIXeBzLI-sR9BDtVDoQ7R/view?usp=sharing"
+  description: "Visualization from SedPlot of the EEG of a patient experiencing the effects of nitrous oxide."
 
 - title: "2D Shock-Driven Cylinder"
   url: "https://www.youtube.com/watch?v=Epbc6F5Hh-4"
   description: "A visualization of the 2D Shock-Driven Cylinder from Henshaw et al."
 
 - title: "Vorticity Contours of a Mach 0.3 Pitching Airfoil"
-  url: "hhttps://www.youtube.com/watch?v=Ak4XyTaJjGA"
+  url: "https://www.youtube.com/watch?v=Ak4XyTaJjGA"
   description: "This demonstrates vorticity contours generated around a pitching airfoil, meant to show the affects of motion on the flow."
 
 - title: "1000 Grid-Resolved Particles in a Mach 1.5 Shock"
@@ -45,5 +53,5 @@
   description: "An enlarged view of fully-resolved particles (80 grid cells across their diameters) colliding."
 
 - title: "Pitching Airfoil in Synthetically-Generated Turbulence"
-  url: "https://www.youtube.com/watch?v=Epbc6F5Hh-4"
+  url: "https://www.youtube.com/watch?v=Fnu23bau3WY"
   description: "A visualization of the vorticity around a pitching airfoil with synthetic turbulence injected in the upstream."

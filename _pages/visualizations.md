@@ -9,7 +9,8 @@ permalink: /visualizations/
 
 {% if site.data.visualizations and site.data.visualizations.size > 0 %}
 <div class="viz-grid" markdown="0">
-{% for item in site.data.visualizations %}
+{% assign items = site.data.visualizations | reverse %}
+{% for item in items %}
 {% assign kind = item.url | media_kind %}
 {% assign embed = item.url | media_embed %}
 {% if item.image %}
