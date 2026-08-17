@@ -80,7 +80,7 @@
 .home-post-card {
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap: var(--space-5);
+  gap: var(--space-6);
   align-items: start;
   background: linear-gradient(
     160deg,
@@ -89,7 +89,7 @@
   );
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: var(--space-5);
+  padding: var(--space-4);
   margin-top: var(--space-6);
   margin-bottom: var(--space-6);
   box-shadow: var(--shadow-sm);

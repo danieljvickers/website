@@ -1,60 +1,86 @@
 ---
-title: "Research"
+title: "Visualizations"
 layout: gridlay
 sitemap: false
-permalink: /research/
+permalink: /visualizations/
 ---
 
-## Research
+## Visualizations
 
-<div class="research-grid">
-
-<div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/qed.svg" class="research-thumb" alt="Feynman diagram">
-<div class="research-body">
-<h4 class="research-title">Quantum Electrodynamics</h4>
-<p class="research-desc">Development of the path integral formulation of quantum mechanics and its application to quantum electrodynamics (QED). This work introduced Feynman diagrams as a powerful tool for calculating particle interactions, providing an intuitive visual representation of complex quantum processes.</p>
+{% if site.data.visualizations and site.data.visualizations.size > 0 %}
+<div class="viz-grid" markdown="0">
+{% for item in site.data.visualizations %}
+{% assign kind = item.url | media_kind %}
+{% assign embed = item.url | media_embed %}
+{% if item.image %}
+  {% capture thumb %}{{ site.url }}{{ site.baseurl }}/images/visualizations/{{ item.image }}{% endcapture %}
+  {% assign thumb_alt = nil %}
+{% else %}
+  {% assign thumb = item.url | media_thumb %}
+  {% assign thumb_alt = item.url | media_thumb_alt %}
+{% endif %}
+<div class="viz-card">
+{% if embed %}
+<div class="viz-frame" data-embed="{{ embed }}" data-title="{{ item.title | escape }}" role="button" tabindex="0" aria-label="Play {{ item.title | escape }}">
+{% else %}
+<a class="viz-frame" href="{{ item.url }}" target="_blank" rel="noopener">
+{% endif %}
+{% if thumb %}
+<img class="viz-thumb" src="{{ thumb }}" alt="{{ item.title | escape }}" loading="lazy"{% if thumb_alt %} onerror="this.onerror=null;this.src='{{ thumb_alt }}';"{% endif %}>
+{% else %}
+<div class="viz-thumb viz-thumb-blank"></div>
+{% endif %}
+<span class="viz-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+{% if embed %}
+</div>
+{% else %}
+</a>
+{% endif %}
+<div class="viz-body">
+<h4 class="viz-title">{{ item.title }}</h4>
+{% if item.description %}<p class="viz-desc">{{ item.description }}</p>{% endif %}
+<a class="viz-link" href="{{ item.url }}" target="_blank" rel="noopener">
+{% case kind %}
+{% when 'youtube' %}<i class="fa-brands fa-youtube"></i> Watch on YouTube
+{% when 'drive' %}<i class="fa-brands fa-google-drive"></i> Open in Google Drive
+{% when 'vimeo' %}<i class="fa-brands fa-vimeo-v"></i> Watch on Vimeo
+{% else %}<i class="fa-solid fa-arrow-up-right-from-square"></i> Open link
+{% endcase %}
+</a>
 </div>
 </div>
-
-<div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/superfluidity.svg" class="research-thumb" alt="Superfluid helium">
-<div class="research-body">
-<h4 class="research-title">Superfluidity</h4>
-<p class="research-desc">Quantum mechanical explanation of the behavior of liquid helium near absolute zero. Using path integral methods, we developed a microscopic theory of the lambda transition and explained the energy spectrum of excitations in superfluid helium, including the roton minimum.</p>
-</div>
-</div>
-
-<div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/partons.svg" class="research-thumb" alt="Parton model">
-<div class="research-body">
-<h4 class="research-title">Parton Model</h4>
-<p class="research-desc">A model describing the internal structure of hadrons in terms of point-like constituents called partons. This framework proved essential for interpreting deep inelastic scattering experiments at SLAC and laid the groundwork for quantum chromodynamics (QCD).</p>
-</div>
-</div>
-
-<div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/quantum-computing.svg" class="research-thumb" alt="Quantum circuit">
-<div class="research-body">
-<h4 class="research-title">Quantum Computing</h4>
-<p class="research-desc">Pioneering proposals for using quantum mechanical systems to perform computation. We demonstrated that classical computers cannot efficiently simulate quantum physics, motivating the development of quantum computers that exploit superposition and entanglement.</p>
-</div>
-</div>
-
-<div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/nanotechnology.svg" class="research-thumb" alt="Atomic manipulation">
-<div class="research-body">
-<h4 class="research-title">Nanotechnology</h4>
-<p class="research-desc">Exploration of the physical possibilities of manipulating matter at the atomic scale. The talk "There's Plenty of Room at the Bottom" envisioned machines that could arrange atoms one by one, anticipating modern nanotechnology and molecular manufacturing.</p>
-</div>
-</div>
-
-<div class="research-card">
-<img src="{{ site.url }}{{ site.baseurl }}/images/research/weak-interactions.svg" class="research-thumb" alt="Weak interaction diagram">
-<div class="research-body">
-<h4 class="research-title">Weak Interactions</h4>
-<p class="research-desc">Development of the V-A theory of the weak interaction with Murray Gell-Mann. This theory correctly predicted the structure of weak decays and was later incorporated into the electroweak unification by Weinberg, Salam, and Glashow.</p>
-</div>
+{% endfor %}
 </div>
 
-</div>
+<script>
+// Click a preview to swap it for the player, so nothing loads from
+// YouTube/Drive until the visitor actually asks for it.
+(function () {
+  var frames = document.querySelectorAll('.viz-frame[data-embed]');
+  Array.prototype.forEach.call(frames, function (frame) {
+    function play() {
+      if (frame.querySelector('iframe')) return;
+      var iframe = document.createElement('iframe');
+      iframe.src = frame.getAttribute('data-embed');
+      iframe.title = frame.getAttribute('data-title') || 'Visualization';
+      iframe.loading = 'lazy';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.setAttribute('frameborder', '0');
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+      frame.classList.add('is-playing');
+    }
+    frame.addEventListener('click', play);
+    frame.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        play();
+      }
+    });
+  });
+})();
+</script>
+{% else %}
+<p class="text-muted">No visualizations yet.</p>
+{% endif %}
