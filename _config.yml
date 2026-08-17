@@ -25,8 +25,8 @@ links:
 accent_color: "#60A5FA"      # theme color for links and buttons
 dark_mode: true              # show dark mode toggle in navbar
 description: "Academic webpage of Daniel J. VIckers"
-baseurl: "www.danieljvickers.com"
-url: "www.danieljvickers.com"
+baseurl: ""
+url: "https://www.danieljvickers.com"
 
 # Google Analytics — paste your GA4 measurement ID, or leave blank
 analytics:
@@ -40,7 +40,7 @@ nav_pages:
   - name: publications
   - name: talks
   - name: research
-  - name: Climbing
+  # - name: Climbing
 
 # ============================================================
 # Advanced Settings (you probably don't need to change these)
