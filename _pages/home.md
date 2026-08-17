@@ -8,32 +8,40 @@ permalink: /
 <h2 class="home-hero">{{ site.name }}</h2>
 <p class="home-hero-sub">{{ site.title }}, {{ site.institution }}</p>
 
-<div class="chip-container" markdown="0">
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Electrodynamics</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Path Integrals</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Superfluidity</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Parton Model</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Computing</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Nanotechnology</a>
+My background is as a numerical physicist. I enjoy working with most fields of physics and specialize in computational optimizations for writing physics-based solvers and simulations. I have worked on code applied to relativistic astrophysics, medicine, signal processing, electromagnetics, computational fluid dynamics, magneto-hydrodynamics, and others. I am current pursuing a PhD in Computational Science & Engineering at the Georgia Institute of Technology on my work optimizing compressible CFD simulations of particle-laden flows. My goal is improving the efficiency of computational methods by focusing on algorithms and techniques that produce optimal results given finite resources. You can view my most-recent publications for a review of topics I am currently or have recently been working on.
+
+{% assign latest = site.data.blog | last %}
+{% if latest %}
+{% assign latest_path = latest.post | append: ".md" | prepend: "_blog/" %}
+{% assign latest_post = site.blog | where: "relative_path", latest_path | first %}
+{% endif %}
+{% if latest_post %}
+### Latest Post
+
+<div class="home-post-card" markdown="0">
+{% if latest.image %}
+<a href="{{ site.url }}{{ site.baseurl }}{{ latest_post.url }}" class="home-post-thumb-link">
+<img src="{{ site.url }}{{ site.baseurl }}/images/blog/{{ latest.image }}" class="home-post-thumb" alt="{{ latest.alt | default: latest_post.title }}">
+</a>
+{% endif %}
+<div class="home-post-body">
+<h4 class="home-post-title"><a href="{{ site.url }}{{ site.baseurl }}{{ latest_post.url }}">{{ latest_post.title }}</a></h4>
+{% if latest_post.date %}<span class="home-post-date">{{ latest_post.date | date: "%b %-d, %Y" }}</span>{% endif %}
+<p class="home-post-excerpt">{{ latest_post.content | strip_html | normalize_whitespace | truncatewords: 55 }}</p>
+<a href="{{ site.url }}{{ site.baseurl }}{{ latest_post.url }}" class="home-post-more">Read the full post &rarr;</a>
 </div>
-
-Theoretical physics is a branch of physics that focuses on the development of mathematical models and theories to understand and explain natural phenomena.
-It plays a crucial role in our understanding of the fundamental laws of the universe and the fundamental particles that make up all matter.
-Research in theoretical physics helps us to make predictions about how the universe works and to test these predictions through experiments.
-
-<div class="callout callout-success" markdown="0">
-<div class="callout-title"><i class="fa-solid fa-award callout-icon"></i> Nobel Prize in Physics, 1965</div>
-<p>Awarded the Nobel Prize jointly with Julian Schwinger and Shin'ichiro Tomonaga for fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles.</p>
 </div>
+{% endif %}
 
-<div class="banner-frame" markdown="0">
-<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Feynman diagrams" loading="lazy">
-<div class="banner-caption">Examples of Feynman diagrams. Feynman R., <em>The theory of positrons. Phys. Rev.</em> (1949)</div>
+### Recent News
+
+<div class="section-card" markdown="0">
+<div class="news-timeline">
+{% for article in site.data.news %}
+<div class="news-item">
+<span class="news-date">{{ article.date }}</span>
+<span class="news-headline">{{ article.headline }}</span>
 </div>
-
-### About me
-
-I am a physicist working in the field of quantum mechanics and quantum electrodynamics.
-I received my undergraduate degree in physics from the Massachusetts Institute of Technology (MIT) in 1939 and went on to earn my PhD from Princeton University in 1942.
-After completing my doctoral studies, I worked on the Manhattan Project, where I helped develop the first atomic bombs.
-After the war, I returned to academia, holding teaching and research positions at Cornell and now at the California Institute of Technology.
+{% endfor %}
+</div>
+</div>

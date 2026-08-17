@@ -38,9 +38,9 @@ analytics:
 nav_pages:
   - name: about
   - name: publications
-  - name: talks
+  # - name: talks
   - name: research
-  # - name: Climbing
+  - name: blog
 
 # ============================================================
 # Advanced Settings (you probably don't need to change these)
@@ -48,6 +48,20 @@ nav_pages:
 include:
   - .htaccess
   - _pages
+
+# Blog posts live in _blog/ as plain .md files (e.g. _blog/solar_slab.md).
+# Each one is paired with a cover image in _data/blog.yml.
+collections:
+  blog:
+    output: true
+    permalink: /blog/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: blog
+    values:
+      layout: post
 
 sass:
   quiet_deps: true
@@ -74,7 +88,7 @@ plugins: ["jekyll/scholar", "jekyll-sitemap"]
 
 scholar:
   last_name: Vickers
-  first_name: [Daniel J.]
+  first_name: [Daniel]
   style: citesty
   locale: en
   source: /assets/

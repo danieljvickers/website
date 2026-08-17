@@ -1,0 +1,19 @@
+# ============================================================
+# Blog index
+# ------------------------------------------------------------
+# One entry per blog post. Add each new post to the BOTTOM of this
+# file: the last entry is treated as the most recent, so it appears
+# first on /blog/ and is featured on the home page.
+#
+#   post:   name of the markdown file in _blog/, without ".md"
+#           (post: solar_slab  ->  _blog/solar_slab.md)
+#   image:  file name of the cover image inside images/blog/
+#   alt:    (optional) alt text for the cover image
+#
+# Title, date, and summary are read from the post's front matter,
+# so you only need to edit them in one place.
+# ============================================================
+
+- post: solar_slab
+  image: solar_slab.jpg
+  alt: "Solar slab"

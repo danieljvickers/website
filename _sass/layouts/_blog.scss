@@ -1,0 +1,188 @@
+// =============================================================
+// Blog — index card grid + single post
+// =============================================================
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    160deg,
+    var(--bg-card) 0%,
+    var(--bg-secondary) 100%
+  );
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: box-shadow var(--transition-slow), transform var(--transition-slow);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+  }
+
+  .blog-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover .blog-thumb {
+    transform: scale(1.04);
+  }
+
+  .blog-body {
+    padding: var(--space-6);
+  }
+
+  .blog-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  .blog-date {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-summary {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+}
+
+// -------------------------------------------------------------
+// Latest post teaser on the home page
+// -------------------------------------------------------------
+.home-post-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-5);
+  align-items: start;
+  background: linear-gradient(
+    160deg,
+    var(--bg-card) 0%,
+    var(--bg-secondary) 100%
+  );
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-slow), transform var(--transition-slow);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  .home-post-thumb-link {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+  }
+
+  .home-post-thumb {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover .home-post-thumb {
+    transform: scale(1.04);
+  }
+
+  .home-post-title {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  .home-post-date {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .home-post-excerpt {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+  }
+
+  .home-post-more {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+}
+
+// -------------------------------------------------------------
+// Single post
+// -------------------------------------------------------------
+.blog-post {
+  max-width: 46rem;
+
+  .blog-hero {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-meta {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-back {
+    display: inline-block;
+    margin-top: var(--space-8);
+    font-size: 0.875rem;
+  }
+}

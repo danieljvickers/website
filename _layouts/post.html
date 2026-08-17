@@ -2,13 +2,26 @@
 layout: default
 ---
 
-<article itemscope itemtype="http://schema.org/BlogPosting">
+{% comment %} Cover image comes from the matching entry in _data/blog.yml {% endcomment %}
+{% assign blog_entry = nil %}
+{% for item in site.data.blog %}
+  {% assign item_path = item.post | append: ".md" | prepend: "_blog/" %}
+  {% if item_path == page.relative_path %}{% assign blog_entry = item %}{% endif %}
+{% endfor %}
+
+<article class="blog-post fade-in-section" itemscope itemtype="http://schema.org/BlogPosting">
+  {% if blog_entry and blog_entry.image %}
+  <img src="{{ site.url }}{{ site.baseurl }}/images/blog/{{ blog_entry.image }}" class="blog-hero" alt="{{ blog_entry.alt | default: page.title }}">
+  {% endif %}
+
   <h2 itemprop="name headline">{{ page.title | escape }}</h2>
-  <p class="text-muted" style="font-size: 0.875rem;">
+  <p class="blog-meta">
     <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
     {% if page.author %} &middot; <span itemprop="author">{{ page.author }}</span>{% endif %}
   </p>
   <div itemprop="articleBody">
     {{ content }}
   </div>
+
+  <a class="blog-back" href="{{ site.url }}{{ site.baseurl }}/blog/">&larr; Back to all posts</a>
 </article>
