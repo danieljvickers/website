@@ -45,4 +45,4 @@ I am now at the Georgia Institute of Technology in the Computational Science and
 
 ## Not Reseach
 
-Aside from my research, I like to think of myself as a relatively accomplished rock climber. I am an AMGA-certified Single Pitch Instructor, and I was the previous owner of Greater Boston Climbing School. I enjoy easy days of climbing outside where I can enjoy time with others in the sun with a great view. I am not finished guiding professionally, but I still enjoy setting some objectives outdoors with others. More information can be found in the blog.
+Aside from my research, some may call me a relatively accomplished rock climber. I am an AMGA-certified Single Pitch Instructor, and I was the previous owner of Greater Boston Climbing School. I enjoy easy days of climbing outside where I can enjoy time with others in the sun with a great view. I am not finished guiding professionally, but I still enjoy setting some objectives outdoors with others. More information can be found in the blog.
