@@ -1,0 +1,36 @@
+# ============================================================
+# Talks
+# ------------------------------------------------------------
+# One entry per talk. The list is shown in reverse: the LAST
+# entry in this file appears first on the page, so add new talks
+# to the bottom.
+#
+#   title:        talk title (required)
+#   event:        (optional) conference, seminar, or venue
+#   date:         (optional) free text, e.g. "November 2025"
+#   location:     (optional) e.g. "Atlanta, GA"
+#   url:          (optional) YouTube link -- the preview image is
+#                 pulled from YouTube automatically, and the video
+#                 plays inline on the page
+#   slides:       (optional) link to slides (PDF, Google Slides, ...)
+#   description:  (optional) a sentence or two of context
+#
+# A talk with no `url` still lists fine -- it just shows without a
+# video preview.
+# ============================================================
+
+- title: "Understanding Solutions to the Angular Teukolsky Equation in the Prolate Asymptotic Limit"
+  event: "Thesis Defense"
+  date: "December 2020"
+  location: "Winston-Salem, NC"
+  url: "https://www.youtube.com/embed/seil6tcsUfE" # https://youtu.be/seil6tcsUfE?si=-nZcnabnAdxse0UR
+  slides: ""
+  description: "Presentation for my master's thesis defense."
+
+- title: "Interpretation of the EEG DSA for Anesthesiologists"
+  event: "Lecture"
+  date: "Feb 2025"
+  location: "Boston, MA"
+  url: "https://www.youtube.com/watch?v=cEChNWV5BRk"
+  slides: "https://www.youtube.com/redirect?event=video_description&redir_token=QUM4Zm9rUm5GQU9Ib0t3SFhwQnBEY0JMdWk1X3xBR3JiS2FuUGNHUjlZTXZOWmNESU45VzVyWjdsTm9FSm5IU3FvNlJxeUhPaXF4VEdFMUlKMjFiVmdEdXlNRU9jcklKRFlOMURwQnRyNEdwdExpUUtRY3N4RTZvWHZXODVpX2lI&q=https%3A%2F%2Fdocs.google.com%2Fpresentation%2Fd%2F1gD4lZlig8LLt-x3kuyRaY9NY7nnxLsi3vC6HNQG5MdY%2Fedit%3Fusp%3Dsharing&v=cEChNWV5BRk"
+  description: "A weekly lecture talk at Boston Medical Center for the Anesthesia Department on the interpretation of EEG Density Spectral Arrays."

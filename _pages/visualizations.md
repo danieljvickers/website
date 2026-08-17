@@ -13,7 +13,7 @@ permalink: /visualizations/
 {% for item in items %}
 {% assign kind = item.url | media_kind %}
 {% assign embed = item.url | media_embed %}
-{% if item.image %}
+{% if item.image and item.image != "" %}
   {% capture thumb %}{{ site.url }}{{ site.baseurl }}/images/visualizations/{{ item.image }}{% endcapture %}
   {% assign thumb_alt = nil %}
 {% else %}
@@ -39,7 +39,7 @@ permalink: /visualizations/
 {% endif %}
 <div class="viz-body">
 <h4 class="viz-title">{{ item.title }}</h4>
-{% if item.description %}<p class="viz-desc">{{ item.description }}</p>{% endif %}
+{% if item.description and item.description != "" %}<p class="viz-desc">{{ item.description }}</p>{% endif %}
 <a class="viz-link" href="{{ item.url }}" target="_blank" rel="noopener">
 {% case kind %}
 {% when 'youtube' %}<i class="fa-brands fa-youtube"></i> Watch on YouTube
@@ -53,35 +53,7 @@ permalink: /visualizations/
 {% endfor %}
 </div>
 
-<script>
-// Click a preview to swap it for the player, so nothing loads from
-// YouTube/Drive until the visitor actually asks for it.
-(function () {
-  var frames = document.querySelectorAll('.viz-frame[data-embed]');
-  Array.prototype.forEach.call(frames, function (frame) {
-    function play() {
-      if (frame.querySelector('iframe')) return;
-      var iframe = document.createElement('iframe');
-      iframe.src = frame.getAttribute('data-embed');
-      iframe.title = frame.getAttribute('data-title') || 'Visualization';
-      iframe.loading = 'lazy';
-      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      iframe.setAttribute('frameborder', '0');
-      frame.innerHTML = '';
-      frame.appendChild(iframe);
-      frame.classList.add('is-playing');
-    }
-    frame.addEventListener('click', play);
-    frame.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        play();
-      }
-    });
-  });
-})();
-</script>
+{% include media_player.html %}
 {% else %}
 <p class="text-muted">No visualizations yet.</p>
 {% endif %}

@@ -1,0 +1,147 @@
+// =============================================================
+// Talks page — horizontal cards with a video preview
+// =============================================================
+
+.talk-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.talk-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+  background: linear-gradient(
+    160deg,
+    var(--bg-card) 0%,
+    var(--bg-secondary) 100%
+  );
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-slow), transform var(--transition-slow);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+
+  // Talks with no video get the full width for text
+  &.talk-card-noimg {
+    grid-template-columns: 1fr;
+  }
+}
+
+.talk-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+
+  .talk-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  &.is-playing {
+    cursor: default;
+  }
+}
+
+.talk-card:hover .talk-frame:not(.is-playing) .talk-thumb {
+  transform: scale(1.04);
+}
+
+.talk-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: #fff;
+  pointer-events: none;
+  transition: background-color var(--transition-slow), transform var(--transition-slow);
+
+  i {
+    // nudge the triangle onto the optical centre
+    margin-left: 3px;
+  }
+}
+
+.talk-card:hover .talk-play {
+  background-color: var(--accent);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.talk-frame.is-playing .talk-play {
+  display: none;
+}
+
+.talk-body {
+  padding: var(--space-2) var(--space-2) var(--space-2) 0;
+
+  @media (max-width: 640px) {
+    padding-left: var(--space-2);
+  }
+}
+
+.talk-title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: var(--space-1);
+}
+
+.talk-meta {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.talk-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.talk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+
+  i {
+    margin-right: var(--space-1);
+  }
+}

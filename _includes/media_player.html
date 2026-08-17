@@ -1,0 +1,31 @@
+<script>
+// Click a preview to swap it for the player, so nothing loads from
+// YouTube/Drive until the visitor actually asks for it.
+// Used by the visualizations and talks pages -- any element with a
+// data-embed attribute becomes click-to-play.
+(function () {
+  var frames = document.querySelectorAll('[data-embed]');
+  Array.prototype.forEach.call(frames, function (frame) {
+    function play() {
+      if (frame.querySelector('iframe')) return;
+      var iframe = document.createElement('iframe');
+      iframe.src = frame.getAttribute('data-embed');
+      iframe.title = frame.getAttribute('data-title') || 'Video';
+      iframe.loading = 'lazy';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.setAttribute('frameborder', '0');
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+      frame.classList.add('is-playing');
+    }
+    frame.addEventListener('click', play);
+    frame.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        play();
+      }
+    });
+  });
+})();
+</script>

@@ -38,7 +38,7 @@ analytics:
 nav_pages:
   - name: about
   - name: publications
-  # - name: talks
+  - name: talks
   # - name: research
   - name: visualizations
   - name: blog
