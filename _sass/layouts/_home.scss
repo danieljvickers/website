@@ -116,3 +116,21 @@
     line-height: 1.5;
   }
 }
+
+// -------------------------------------------------------------
+// "Latest ..." teasers — visualization, publication, talk
+// -------------------------------------------------------------
+// The cards reuse .home-post-card (layouts/_blog.scss) for the
+// shell, .viz-frame / .viz-thumb / .viz-play (layouts/_visualizations.scss)
+// for the click-to-play preview, and .talk-actions (layouts/_talks.scss)
+// for the buttons. Only the two gaps are filled in here.
+
+// The publication teaser has no preview image, so the body takes
+// the whole card instead of leaving an empty thumbnail column.
+.home-post-card-noimg {
+  grid-template-columns: 1fr;
+}
+
+.home-post-card .talk-actions {
+  margin-bottom: var(--space-3);
+}

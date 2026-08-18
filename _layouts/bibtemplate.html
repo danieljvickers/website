@@ -1,7 +1,22 @@
 ---
 ---
 
+{% case entry.type %}
+  {% when 'unpublished' %}{% assign pub_type_label = 'Preprint' %}
+  {% when 'article' %}{% assign pub_type_label = 'Journal Article' %}
+  {% when 'inproceedings' %}{% assign pub_type_label = 'Conference Proceedings' %}
+  {% when 'incollection' %}{% assign pub_type_label = 'Book Chapter' %}
+  {% when 'book' %}{% assign pub_type_label = 'Book' %}
+  {% when 'phdthesis' %}{% assign pub_type_label = 'Thesis' %}
+  {% when 'mastersthesis' %}{% assign pub_type_label = 'Thesis' %}
+  {% when 'thesis' %}{% assign pub_type_label = 'Thesis' %}
+  {% when 'techreport' %}{% assign pub_type_label = 'Technical Report' %}
+  {% when 'report' %}{% assign pub_type_label = 'Technical Report' %}
+  {% else %}{% assign pub_type_label = nil %}
+{% endcase %}
+
 <div class="pub-entry" data-pub-searchable>
+  {% if pub_type_label %}<span class="pub-type-label">{{ pub_type_label }}</span>{% endif %}
   <div class="text-justify">{{ reference }}</div>
 
   <!-- You can use the below to make your name bold -->
