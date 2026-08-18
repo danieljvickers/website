@@ -145,3 +145,42 @@
     margin-right: var(--space-1);
   }
 }
+
+// =============================================================
+// Posters
+// -------------------------------------------------------------
+// Poster cards reuse .viz-grid / .viz-card / .viz-body / .viz-title
+// / .viz-desc from layouts/_visualizations.scss and .talk-meta /
+// .talk-actions from this file. Only the preview needs its own
+// rules: unlike a video thumbnail it must not be cropped to 16:9,
+// since the whole point is seeing the poster.
+// =============================================================
+
+.poster-frame {
+  display: block;
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.poster-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.viz-card:hover .poster-thumb {
+  transform: scale(1.03);
+}
+
+// .talk-meta is a block in the talk list; inside a poster card it
+// needs the same spacing the title/description pair expects.
+.viz-body .talk-meta {
+  margin-bottom: var(--space-2);
+}
+
+.viz-body .talk-actions {
+  margin-top: var(--space-3);
+}

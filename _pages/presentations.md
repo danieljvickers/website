@@ -1,8 +1,8 @@
 ---
-title: "Talks"
+title: "Presentations"
 layout: gridlay
 sitemap: false
-permalink: /talks/
+permalink: /presentations/
 ---
 
 ## Talks
@@ -49,4 +49,40 @@ permalink: /talks/
 {% include media_player.html %}
 {% else %}
 <p class="text-muted">No talks yet.</p>
+{% endif %}
+
+## Posters
+
+{% if site.data.posters and site.data.posters.size > 0 %}
+<div class="viz-grid" markdown="0">
+{% assign posters = site.data.posters | reverse %}
+{% for poster in posters %}
+{% assign poster_href = poster.url | default: nil %}
+{% unless poster_href %}{% capture poster_href %}{{ site.url }}{{ site.baseurl }}/assets/pdfs/{{ poster.file }}{% endcapture %}{% endunless %}
+{% if poster.image and poster.image != "" %}
+{% assign poster_img = poster.image %}
+{% else %}
+{% assign poster_img = poster.file | replace: ".pdf", ".jpg" %}
+{% endif %}
+<div class="viz-card">
+<a class="poster-frame" href="{{ poster_href }}" target="_blank" rel="noopener" aria-label="Open {{ poster.title | escape }} (PDF)">
+<img class="poster-thumb" src="{{ site.url }}{{ site.baseurl }}/images/posters/{{ poster_img }}" alt="{{ poster.title | escape }}" loading="lazy">
+</a>
+<div class="viz-body">
+<h4 class="viz-title">{{ poster.title }}</h4>
+{% assign poster_meta = "" | split: "" %}
+{% if poster.venue and poster.venue != "" %}{% assign poster_meta = poster_meta | push: poster.venue %}{% endif %}
+{% if poster.location and poster.location != "" %}{% assign poster_meta = poster_meta | push: poster.location %}{% endif %}
+{% if poster.date and poster.date != "" %}{% assign poster_meta = poster_meta | push: poster.date %}{% endif %}
+{% if poster_meta.size > 0 %}<span class="talk-meta">{{ poster_meta | join: " &middot; " }}</span>{% endif %}
+{% if poster.description and poster.description != "" %}<p class="viz-desc">{{ poster.description }}</p>{% endif %}
+<div class="talk-actions">
+<a href="{{ poster_href }}" target="_blank" rel="noopener" class="btn-pill btn-pdf"><i class="fa-solid fa-file-pdf"></i> Poster PDF</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<p class="text-muted">No posters yet.</p>
 {% endif %}

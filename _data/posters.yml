@@ -1,0 +1,34 @@
+# ============================================================
+# Posters
+# ------------------------------------------------------------
+# One entry per poster. The list is shown in reverse: the LAST
+# entry in this file appears first on the page, so add new
+# posters to the bottom.
+#
+#   title:        poster title (required)
+#   file:         PDF file name inside assets/pdfs/ (required)
+#   venue:        (optional) conference, symposium, or meeting
+#   date:         (optional) free text, e.g. "February 2026"
+#   location:     (optional) e.g. "Atlanta, GA"
+#   description:  (optional) a sentence or two of context
+#   image:        (optional) preview file name inside images/posters/
+#                 Defaults to the PDF name with a .jpg extension, so
+#                 2026-gscs-poster.pdf -> 2026-gscs-poster.jpg and you
+#                 usually do not need to set this.
+#   url:          (optional) link somewhere other than assets/pdfs/,
+#                 e.g. a Zenodo or arXiv landing page
+#
+# Making the preview image (any PDF -> a 1400px wide JPEG):
+#
+#   pdftoppm -jpeg -jpegopt quality=88 -scale-to-x 1400 -scale-to-y -1 \
+#     -f 1 -l 1 -singlefile assets/pdfs/NAME.pdf images/posters/NAME
+#
+# Both the preview and the button link open the full PDF.
+# ============================================================
+
+- title: "Highly-Parallel Fluid-Solid Interactions for Compressible Flows"
+  file: "2026-gscs-poster.pdf"
+  venue: "Georgia Scientific Computing Symposium"
+  date: "February 2026"
+  location: "Atlanta, GA"
+  description: "A GPU-accelerated fluid-solid interaction solver following the jCODE implementation, adding a cross-vendor GPU macro library and a memory reduction scheme that cuts usage by a factor of four, benchmarked against the 2D shock-driven cylinder of Henshaw et al."

@@ -2,6 +2,14 @@
 // Publication entry
 // =============================================================
 
+// jekyll-scholar wraps entries in <ol>. The list reads as one
+// continuous run of entries, so drop the numbering and its indent.
+ol.bibliography {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
 .pub-entry {
   padding: var(--space-6) 0;
   border-bottom: 1px solid var(--border-color);

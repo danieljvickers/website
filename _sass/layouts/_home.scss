@@ -127,7 +127,9 @@
 
 // The publication teaser has no preview image, so the body takes
 // the whole card instead of leaving an empty thumbnail column.
-.home-post-card-noimg {
+// Both classes are needed: layouts/_blog.scss is imported after this
+// file, so a lone .home-post-card-noimg loses the tie on source order.
+.home-post-card.home-post-card-noimg {
   grid-template-columns: 1fr;
 }
 

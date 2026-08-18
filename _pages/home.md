@@ -125,7 +125,7 @@ My background is as a numerical physicist. I enjoy working with most fields of p
 {% if latest_talk.url and latest_talk.url != "" %}<a href="{{ latest_talk.url }}" target="_blank" rel="noopener" class="btn-pill btn-website"><i class="fa-brands fa-youtube"></i> Watch</a>{% endif %}
 {% if latest_talk.slides and latest_talk.slides != "" %}<a href="{{ latest_talk.slides }}" target="_blank" rel="noopener" class="btn-pill btn-git"><i class="fa-solid fa-file-lines"></i> Slides</a>{% endif %}
 </div>
-<a href="{{ site.url }}{{ site.baseurl }}/talks/" class="home-post-more">See all talks &rarr;</a>
+<a href="{{ site.url }}{{ site.baseurl }}/presentations/" class="home-post-more">See all presentations &rarr;</a>
 </div>
 </div>
 {% endif %}
