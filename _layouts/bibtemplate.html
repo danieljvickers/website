@@ -37,11 +37,17 @@
     <a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
     {% endif %}
 
+    {% comment %}
+      The `doi` field in ref.bib holds the full resolver URL
+      (https://doi.org/10.xxxx/yyyy), so it is used as-is. arXiv
+      preprints resolve through doi.org too, via their
+      10.48550/arXiv.NNNN.NNNNN DOI.
+    {% endcomment %}
     {% if entry.doi %}
       {% if entry.type == 'unpublished' %}
-      <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank" class="btn-pill btn-arxiv">arXiv</a>
+      <a href="{{ entry.doi }}" target="_blank" rel="noopener" class="btn-pill btn-arxiv">arXiv</a>
       {% else %}
-      <a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank" class="btn-pill btn-doi">DOI</a>
+      <a href="{{ entry.doi }}" target="_blank" rel="noopener" class="btn-pill btn-doi">DOI</a>
       {% endif %}
     {% endif %}
 

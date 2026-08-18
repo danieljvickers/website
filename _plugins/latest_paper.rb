@@ -17,7 +17,7 @@ require "bibtex"
 #   site.data.latest_paper.authors   -> "Wilfong, B, Le Berre, H, ..."
 #   site.data.latest_paper.venue     -> journal, booktitle, or school
 #   site.data.latest_paper.year
-#   site.data.latest_paper.doi_url   -> normalized https://doi.org/...
+#   site.data.latest_paper.doi_url   -> the `doi` field, a full https URL
 #   site.data.latest_paper.arxiv_url -> set instead of doi_url for @unpublished
 #   site.data.latest_paper.pdf       -> value of the `file` field, if any
 #
@@ -86,30 +86,20 @@ module Jekyll
       raw.split(/\s+and\s+/).map(&:strip).reject(&:empty?).join(", ")
     end
 
-    # Entries in this bibliography store the DOI both bare and as a full
-    # URL, so strip any resolver prefix before rebuilding it over https.
-    def bare_doi(entry)
-      raw = field(entry, :doi)
-      return nil if raw.nil?
-
-      doi = raw.sub(%r!\Ahttps?://(?:dx\.)?doi\.org/!i, "").strip
-      doi.empty? ? nil : doi
-    end
-
+    # The `doi` field holds the full resolver URL, so it is used as-is --
+    # the same convention _layouts/bibtemplate.html relies on. Preprints
+    # get the same link under an arXiv label; their 10.48550/arXiv.NNNN
+    # DOI resolves to the arXiv abstract page.
     def doi_url(entry)
       return nil if entry.type.to_s == "unpublished"
 
-      doi = bare_doi(entry)
-      doi.nil? ? nil : "https://doi.org/#{doi}"
+      field(entry, :doi)
     end
 
-    # Preprints keep the arXiv id in the doi field, matching the
-    # convention _layouts/bibtemplate.html already relies on.
     def arxiv_url(entry)
       return nil unless entry.type.to_s == "unpublished"
 
-      id = bare_doi(entry)
-      id.nil? ? nil : "https://arxiv.org/abs/#{id}"
+      field(entry, :doi)
     end
   end
 end
