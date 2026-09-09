@@ -17,3 +17,7 @@
 - post: solar_slab
   image: solar_slab.jpg
   alt: "Solar slab"
+
+- post: seneca_rocks
+  image: seneca_rocks.jpg
+  alt: "Seneca Rocks"
