@@ -55,3 +55,7 @@
 - title: "Pitching Airfoil in Synthetically-Generated Turbulence"
   url: "https://www.youtube.com/watch?v=Fnu23bau3WY"
   description: "A visualization of the vorticity around a pitching airfoil with synthetic turbulence injected in the upstream."
+
+- title: "Hemispherical Mound of Particles in a Mach 25 Shock Wave"
+  url: "https://www.youtube.com/watch?v=ICdHzQhEoFk"
+  description: "100,000 grid-resolved particles in a mach-25 hemispherical shock wave. Run in 4 hours on 128 nodes of OLCF Frontier."
