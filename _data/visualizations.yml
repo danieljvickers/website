@@ -59,3 +59,11 @@
 - title: "Hemispherical Mound of Particles in a Mach 25 Shock Wave"
   url: "https://www.youtube.com/watch?v=ICdHzQhEoFk"
   description: "100,000 grid-resolved particles in a mach-25 hemispherical shock wave. Run in 4 hours on 128 nodes of OLCF Frontier."
+
+- title: "Mach 0.5 Flow over an Airfoil at Re 1000 - Contour of Q-Criterion"
+  url: "https://youtu.be/VsTVOh6xrmY"
+  description: "This plot shows stable vortex shedding at a Reynolds number of 1000 for an airfoil in a Mach 0.5 flow."
+
+- title: "High-Mach Comparison of Particle-Fluid Interaction via a Particle-Laden Corgi"
+  url: "https://youtu.be/YiN_xgeYLG8"
+  description: "Side-by-side comparison of particle-resolved and Euler-Lagrange simulations of a particle a particle-laden corgi in a Mach 1.5 shockwave."
