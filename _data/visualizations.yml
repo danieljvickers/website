@@ -67,3 +67,7 @@
 - title: "High-Mach Comparison of Particle-Fluid Interaction via a Particle-Laden Corgi"
   url: "https://youtu.be/YiN_xgeYLG8"
   description: "Side-by-side comparison of particle-resolved and Euler-Lagrange simulations of a particle a particle-laden corgi in a Mach 1.5 shockwave."
+
+- title: "Mach 25 Detonation Through a Hemispherical Shell of Particles"
+  url: "https://www.youtube.com/watch?v=Yp_ByMvAQvY"
+  description: "An exascale simulation of a Mach 25 detonation of gas through a shell of particles, run on 4096 AMD GPUs via the ORNL Frontier computer for 8 hours. This is publised as part of the Gallery of Fluids in Motion for the Americal Physical Society DFD meeting."
